@@ -1,0 +1,2 @@
+<?php
+$bVariable = 5;
