@@ -4,7 +4,7 @@
 //- The destructor is called as soon as there are not references to an object anymore.
 
 //Define class Animal.
-class Animal
+class SimpleAnimal
 {
     public function __construct()
     {
@@ -18,11 +18,11 @@ class Animal
 }
 
 //Alligator is a subclass of Animal. It has no constructor and no destructor.
-class Alligator extends Animal {}
+class SimpleAlligator extends SimpleAnimal {}
 
 //Hippo is a subclass of Animal. It has a constructor and destructor. 
 //It does not call the parent's constructor/destrutor.
-class Hippo extends Animal
+class SimpleHippo extends SimpleAnimal
 {
     public function __construct()
     {
@@ -38,7 +38,7 @@ class Hippo extends Animal
 
 //Monkey is a subclass of Animal. It has a constructor and destructor.
 //It calls the parent's constructor/destructor.
-class Monkey extends Animal
+class SimpleMonkey extends SimpleAnimal
 {
     public function __construct()
     {
@@ -56,13 +56,13 @@ class Monkey extends Animal
 
 //Create and destroy a few objecst to see which constructors are being called.
 echo "Creation of Animal... What happens?" . PHP_EOL;
-$animal = new Animal();
+$animal = new SimpleAnimal();
 echo "Creation of Alligator... What happens?" . PHP_EOL;
-$alligator = new Alligator();
+$alligator = new SimpleAlligator();
 echo "Creation of Hippo... What happens?" . PHP_EOL;
-$hippo = new Hippo();
+$hippo = new SimpleHippo();
 echo "Creation of Monkey... What happens?" . PHP_EOL;
-$monkey = new Monkey();
+$monkey = new SimpleMonkey();
 echo "Deletion of Animal reference... What happens?" . PHP_EOL;
 $animal = NULL;
 echo "Deletion of Alligator reference... What happens?" . PHP_EOL;
