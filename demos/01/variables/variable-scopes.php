@@ -32,14 +32,16 @@ function cFunction()
     echo $globalVariable . PHP_EOL;
     //The following line changes the global variable.
     $globalVariable = 99;
+    //Also the $GLOBALS arrays can be used to access the global variable.
+    echo  $GLOBALS["globalVariable"] . PHP_EOL;
 }
 
 function dFunction()
 {
     //A static variable (in local scope) is initialized only once (in this case with 0).
     //It does not lose its value when the program leaves the scope (in this case dFunction).
-    static $localVariableC = 0;
-    echo ++$localVariableC . PHP_EOL;
+    static $localVariableD = 0;
+    echo ++$localVariableD . PHP_EOL;
 }
 
 echo $globalVariable . PHP_EOL;

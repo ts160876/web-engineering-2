@@ -42,12 +42,12 @@ var_dump(exp(1000)); //larger than the maximum value for float in PHP
 //string (scalar type)
 echo "string (scalar type):" . PHP_EOL;
 echo "=====================" . PHP_EOL;
-$aName = 'Peter';
+$aString = 'Peter';
 echo "You can use single quotes." . PHP_EOL;
 echo 'I\'ll call $aName.' . PHP_EOL; //A literal quote can be escaped. Variables do NOT expand. 
 echo 'After this \n should be a line break.' . PHP_EOL; //Escape sequences do NOT work.
 echo "You can use double quotes." . PHP_EOL;
-echo "I'll call $aName." . PHP_EOL; //A literal quote does NOT have to be escaped. Variables do expand.
+echo "I'll call $aString." . PHP_EOL; //A literal quote does NOT have to be escaped. Variables do expand.
 echo "After this \n should be a line break." . PHP_EOL; //Escape sequences work.
 
 //array - see array.php
