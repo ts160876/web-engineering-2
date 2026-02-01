@@ -15,7 +15,8 @@ echo "Result of getFullName1: " . getFullName1($aFirstName, $aLastName) . PHP_EO
 echo "aFirstName after the call: " . $aFirstName . PHP_EOL;
 echo "aLastName after the call: " . $aLastName . PHP_EOL;
 
-//Per default parameters are passed by value. They can also be passed by reference by using &.
+//Per default parameters are passed by value. They can also be passed by
+//reference by using &.
 function getFullName2($firstName, &$lastName)
 {
     $firstName = strtoupper($firstName);
@@ -40,11 +41,11 @@ echo "Result of getFullName3: " . getFullName3("Sonja") . PHP_EOL;
 //Named argument syntax
 echo "Result of getFullName1 (with named argument syntax): " . getFullName1(lastName: "Bach", firstName: "Benedikt") . PHP_EOL;
 
-//Parameters with types
+//Parameters with types and return values with types;
 //Special cases:
 //- nullable types: ?string $firstName
 //- union types: string|int $firstName
-function getFullName4(string $firstName, $lastName)
+function getFullName4(string $firstName, $lastName): string
 {
     return $firstName . " " . $lastName;
 }

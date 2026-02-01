@@ -1,5 +1,5 @@
 <?php
-//Define a few variables to demonstrate ternary operator
+//Define a few variables to demonstrate ternary expressions
 $aVariable = 4;
 $bVariable = 5;
 

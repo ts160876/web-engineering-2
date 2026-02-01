@@ -33,7 +33,7 @@ someFunction();
 //List all constants. The list includes:
 //- Constants defined with define().
 //- Constants defined with const. 
-//- Predefined constants, such as PHP_VERSION, PHP_EOL, E_ERROR, E_WARNING, E_NOTICE, true, false, null.
+//- Predefined constants, such as PHP_VERSION, PHP_EOL, E_ERROR, E_WARNING, E_NOTICE.
 foreach (get_defined_constants() as $key => $value) {
     echo $key . " of type " . gettype($value) . PHP_EOL;
 }
