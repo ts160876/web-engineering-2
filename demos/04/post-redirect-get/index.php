@@ -1,4 +1,7 @@
 <?php
+//Start a new session.
+session_start();
+
 //These are variables for the various form fields.
 $firstName = '';
 $lastName = '';
@@ -78,15 +81,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $passwordRepeat = '';
     $accepted = false;
   }
-}
 
+  //Write to session.
+  $_SESSION['firstName'] = $firstName;
+  $_SESSION['lastName'] = $lastName;
+  $_SESSION['email'] = $email;
+  $_SESSION['password'] = $password;
+  $_SESSION['passwordRepeat'] = $passwordRepeat;
+  $_SESSION['accepted'] = $accepted;
+  $_SESSION['errorMessages'] = $errorMessages;
+  $_SESSION['successMessages'] = $successMessages;;
+
+  //Redirect.
+  header("Location: index.php", true, 303);
+} elseif ($_SERVER["REQUEST_METHOD"] == "GET") {
+  //In case of a GET request, we read the data from the session to prefill the form and/or show the messages.
+  $firstName = isset($_SESSION['firstName']) ? $_SESSION['firstName'] : '';
+  $lastName = isset($_SESSION['lastName']) ? $_SESSION['lastName'] : '';
+  $email = isset($_SESSION['email']) ? $_SESSION['email'] : '';
+  $password = isset($_SESSION['password']) ? $_SESSION['password'] : '';
+  $passwordRepeat = isset($_SESSION['passwordRepeat']) ? $_SESSION['passwordRepeat'] : '';
+  $accepted = isset($_SESSION['accepted']) ? $_SESSION['accepted'] : false;
+  $errorMessages = isset($_SESSION['errorMessages']) ? $_SESSION['errorMessages'] : '';
+  $successMessages = isset($_SESSION['successMessages']) ? $_SESSION['successMessages'] : '';
+
+  //If we want to avoid that data and messages are shown multiple times, we need to delete the session data.
+  //Here we can easily use session_unset().
+  session_unset();
+}
 ?>
 
 <!doctype html>
 <html lang="en-US">
 
 <head>
-  <title>Register with Buku Buku (v2)</title>
+  <title>Register with Buku Buku (PRG)</title>
   <meta charset="UTF-8" />
 </head>
 
