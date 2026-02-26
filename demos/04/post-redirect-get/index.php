@@ -94,6 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   //Redirect.
   header("Location: index.php", true, 303);
+  return;
 } elseif ($_SERVER["REQUEST_METHOD"] == "GET") {
   //In case of a GET request, we read the data from the session to prefill the form and/or show the messages.
   $firstName = isset($_SESSION['firstName']) ? $_SESSION['firstName'] : '';

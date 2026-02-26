@@ -59,6 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   setcookie(COOKIE_ANIMAL, $animal, ['httponly' => true]);
   //... and redirect.
   header("Location: index.php", true, 303);
+  return;
 }
 
 ?>
