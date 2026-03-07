@@ -55,6 +55,14 @@ class SimpleUser
     var_dump($users);
     ?>
 
+    <h2>Method: fetchAll() with PDO::FETCH_OBJ</h2>
+    <?php
+    $statement = $pdo->query($sqlUsers);
+    //$users is a 1-dimensional array. It includes objects of class stdClass.
+    $users = $statement->fetchAll(PDO::FETCH_OBJ);
+    var_dump($users);
+    ?>
+
     <h2>Method: fetchAll() with PDO::FETCH_CLASS</h2>
     <?php
     $statement = $pdo->query($sqlUsers);

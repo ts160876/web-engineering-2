@@ -18,7 +18,11 @@ $createUser = 'INSERT INTO users VALUES (NULL, "Fritz", "Fischer", "fischers-fri
     <h1>Change Data</h1>
     <h2>Create a user via query()</h2>
     <?php
-    $statement = $pdo->query($createUser);
+    try {
+        $statement = $pdo->query($createUser);
+    } catch (PDOException $e) {
+        logMessage("Select failed: " . $e->getMessage());
+    }
     var_dump($statement);
     //It is possible to get the last key from lastInsertId(), if AUTO_INCREMENT is used for the primary key.
     var_dump($pdo->lastInsertId())

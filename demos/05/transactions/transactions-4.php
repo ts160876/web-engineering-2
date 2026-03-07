@@ -22,6 +22,7 @@ try {
         } else {
             logMessage("Could not create checkout.");
             //Rollback transaction;
+            $pdo->rollBack();
         }
     } else {
         logMessage("Could not update book.");
