@@ -143,7 +143,8 @@ class Monkey extends Animal
 
     //Redefine the saySomething method.
     public function saySomething()
-    {   //Use saySomething method of the Animal class and add something to the result.
+    {
+        //Use saySomething method of the Animal class and add something to the result.
         return parent::saySomething() . " I have so much more to say.";
     }
 

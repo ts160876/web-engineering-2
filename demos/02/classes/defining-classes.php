@@ -27,7 +27,7 @@ class Animal
     //the class is being created. 
     public function __construct($name, $color)
     {
-        //Increase the number of animals
+        //Increase the number of animals.
         Animal::$numberofAnimals++;
         //Initialize the properties with the values from the parameters of the constructor.
         $this->name = $name;

@@ -9,7 +9,6 @@ interface SimpleInterface
 
 class SimpleClass implements SimpleInterface
 {
-
     public function aFunction()
     {
         return true;
