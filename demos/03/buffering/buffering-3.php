@@ -9,7 +9,7 @@ while (ob_get_level() > 0) {
     ob_end_flush();
 }
 
-//Fore immediate flushing.
+//Force immediate flushing.
 ob_implicit_flush(true);
 ?>
 
