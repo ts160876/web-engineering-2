@@ -28,7 +28,10 @@ class AnimalController
     public function editAnimal(): string
     {
         //We do not bother about error handling here. The animal might not exist.
-        $animal = AnimalModel::select($_GET['animalId']);
+        $animal = $this->getFlashMemory('animal');
+        if ($animal == null) {
+            $animal = AnimalModel::select(filter_input(INPUT_GET, 'animalId', FILTER_VALIDATE_INT));
+        }
         $view = new AnimalView($animal);
         return $view->render(AnimalView::EDIT, $this->getFlashMemory('message') ?? '');
     }
@@ -44,15 +47,15 @@ class AnimalController
         return $view->render(AnimalView::CREATE, $this->getFlashMemory('message') ?? '');
     }
 
-    public function save(): string
+    public function save()
     {
         if (isset($_POST['animalId']) == false) {
             //During creation the form does not send the animalId.
-            $animal = AnimalModel::create($_POST['animalName'], $_POST['speciesId']);
+            $animal = AnimalModel::create(filter_input(INPUT_POST, 'animalName'), filter_input(INPUT_POST, 'speciesId', FILTER_VALIDATE_INT));
         } else {
-            $animal = AnimalModel::select($_POST['animalId']);
-            $animal->animalName = $_POST['animalName'];
-            $animal->speciesId = $_POST['speciesId'];
+            $animal = AnimalModel::select(filter_input(INPUT_POST, 'animalId'));
+            $animal->animalName = (filter_input(INPUT_POST, 'animalName'));
+            $animal->speciesId = (filter_input(INPUT_POST, 'speciesId', FILTER_VALIDATE_INT));
         }
 
         if ($animal->save() == true) {
